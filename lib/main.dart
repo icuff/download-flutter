@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void downloadFile() async {
-    DateTime beginTimer = new DateTime.now();
+    DateTime begin = new DateTime.now();
     askPermission();
 
     String url = 'https://devdactic.com/html/5-simple-hacks-LBT.pdf';
@@ -46,8 +46,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
     await new Dio().download(url, path + 'downloadFlutter.pdf');
 
-    DateTime endTimer = new DateTime.now();
-    String duration = endTimer.difference(beginTimer).inMilliseconds.toString();
+    DateTime end = new DateTime.now();
+    String duration = end.difference(begin).inMilliseconds.toString();
     setState(() {
       successMsg = 'Download finished in ' + duration + 'ms';
     });
